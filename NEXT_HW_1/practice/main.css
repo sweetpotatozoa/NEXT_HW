@@ -1,0 +1,80 @@
+* {
+    font-size: 16px;
+}
+.background {
+    max-width: 430px;
+    max-height: 932px;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    background-color: #f5f6f8;
+    padding: 0 8px;
+    margin: auto;
+    border: 3px solid black;
+    border-radius: 30px;
+    overflow: hidden;
+}
+
+.safe-area {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 20px;
+}
+
+.notch {
+    background-color: black;
+    height: 20px;
+    width: 150px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.top {
+    display: flex;
+    width: 100%;
+    margin: 0;
+}
+
+.myImg {
+    width: 40%;
+    height: auto;
+}
+
+.profile {
+    margin-left: 8px;
+}
+
+.mid {
+    margin-top: 32px;
+}
+
+.infoContainer {
+    margin-top: 16px;
+}
+
+.icons {
+    vertical-align: middle;
+    width: 30px;
+}
+
+.bottom {
+    margin-top: 32px;
+}
+
+.photoContainer {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 100%;
+}
+
+.photos {
+    flex: 1;
+    max-width: calc(98% / 3);
+    height: auto;
+    margin: 1px;
+}
