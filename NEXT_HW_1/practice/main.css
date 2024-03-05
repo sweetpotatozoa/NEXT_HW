@@ -14,7 +14,11 @@
     margin: auto;
     border: 3px solid black;
     border-radius: 30px;
-    overflow: hidden;
+    overflow: scroll;
+}
+
+.background::-webkit-scrollbar {
+    display: none;
 }
 
 .safe-area {
