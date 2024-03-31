@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="../static/info.css" />
+        <title>상우의 포트폴리오~~</title>
+    </head>
+    <body>
+        <div class="back">
+            <div class="wrapper">
+                <div class="behind-img">
+                    <img
+                        src="https://images.unsplash.com/photo-1489861408921-2f6a1e6c1155?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                    />
+                </div>
+                <div class="container" id="header">
+                    <h1 style="color: #37352f">김상우란 무엇인가?</h1>
+                    <div class="profile">
+                        <div class="info">
+                            <div class="title">생일</div>
+                            <div class="content">2000/03/20</div>
+                        </div>
+                        <div class="info">
+                            <div class="title">전화번호</div>
+                            <div class="content">010-8767-5458</div>
+                        </div>
+                        <div class="info">
+                            <div class="title">이메일</div>
+                            <div class="content">tkddn3200@korea.ac.kr</div>
+                        </div>
+                        <div class="info">
+                            <div class="title">인스타그램</div>
+                            <div class="content">sangwoo390</div>
+                        </div>
+                        <div class="info">
+                            <div class="title">링크드인</div>
+                            <div class="content">비어 있음</div>
+                        </div>
+                        <div class="info">
+                            <div class="title">+ 속성 추가</div>
+                        </div>
+                    </div>
+                </div>
+                <div
+                    class="container"
+                    style="color: #a5a4a1; border-bottom: 1px solid #ddd; border-top: 1px solid #ddd"
+                >
+                    댓글 추가
+                </div>
+                <div class="container">
+                    <h2>안녕하세요~~</h2>
+                    <figure class="swing">
+                        <img src="../static/images/swing.jpg" alt="swing" />
+                        <figcaption>사진을 넣어주세요 ⬆️</figcaption>
+                    </figure>
+                    <h2 class="menu">MENU</h2>
+                    <div class="container" id="menu">
+                        <a href="{% url 'project' %}"
+                            ><div class="card">
+                                <img src="../static/images/project.jpg" />
+                                <p>제가 만든 프로젝트 입니다</p>
+                            </div></a
+                        >
+                        <a href="{% url 'project' %}"
+                            ><div class="card">
+                                <img src="../static/images/sky.jpg" />
+                                <p>다음에 올 무언가</p>
+                            </div></a
+                        >
+                        <a href="{% url 'project' %}"
+                            ><div class="card">
+                                <img src="../static/images/haehwa.jpg" />
+                                <p>다음에 올 무언가</p>
+                            </div></a
+                        >
+                        <a
+                            ><div class="card" style="display: flex; justify-content: center; align-items: center">
+                                <p>+ 새로 만들기</p>
+                            </div></a
+                        >
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
