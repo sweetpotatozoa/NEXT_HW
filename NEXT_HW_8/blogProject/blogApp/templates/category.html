@@ -3,8 +3,8 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="stylesheet" href="../static/list.css" />
-        <title>Article List</title>
+        <link rel="stylesheet" href="../static/category.css" />
+        <title>category</title>
     </head>
     <body>
         <div class="banner">
@@ -12,20 +12,10 @@
         </div>
         <div class="mid">
             <div class="header">
-                <h2>전체 글 목록</h2>
+                <h2>글 목록</h2>
                 <ul>
                     {% for article in articles %}
-                    <a href="{% url 'detail' article.id %}">
-                        <li>{{ article.title }}</li>
-                    </a>
-                    {% endfor %}
-                </ul>
-            </div>
-            <div class="header">
-                <h2>카테고리</h2>
-                <ul>
-                    {% for category_id, category_name, count in categories_with_counts %}
-                    <a href="{% url 'category' category_id %}"> <li>{{ category_name }} {{count}}</li></a>
+                    <a href="{% url 'detail' article.id %}"> <li>{{ article.title }}</li></a>
                     {% endfor %}
                 </ul>
             </div>

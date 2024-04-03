@@ -3,23 +3,34 @@ from .models import Article
 
 # Create your views here.
 def new(request):
+    categories = Article.category_choices
     if request.method == 'POST':
         
         print(request.POST)
         
         new_article = Article.objects.create(
             title = request.POST['title'],
-            content = request.POST['content']
+            content = request.POST['content'],
+            category = request.POST['category']
         )
         return redirect('list')
     
-    return render(request, 'new.html')
+    return render(request, 'new.html', {'categories': categories})
 
 
 def list(request):
+    categories = Article.category_choices
     articles = Article.objects.all()
-    return render(request, 'list.html', {'articles': articles})
+    categories_with_counts = []
+    for category_id, category_name in categories:
+        count = Article.objects.filter(category=category_id).count()
+        categories_with_counts.append((category_id, category_name, count))
+    return render(request, 'list.html', {'articles': articles, 'categories_with_counts': categories_with_counts})
 
 def detail(request, article_id):
     article = Article.objects.get(id=article_id)
     return render(request, 'detail.html', {'article': article})
+
+def category(request, category_id):
+    articles = Article.objects.filter(category=category_id)
+    return render(request, 'category.html', {'articles': articles})

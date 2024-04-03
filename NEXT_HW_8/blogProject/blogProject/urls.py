@@ -21,6 +21,7 @@ from blogApp import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('new', views.new , name='new'),
-    path('list', views.list , name='list'),
+    path('', views.list , name='list'),
     path('detail/<int:article_id>', views.detail , name='detail'),
+    path('category/<str:category_id>', views.category , name='category'),
 ]
