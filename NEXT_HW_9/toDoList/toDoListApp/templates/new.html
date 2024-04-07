@@ -1,0 +1,21 @@
+{% extends 'base.html' %} {% block css %} {% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'new.css' %}" />
+{% endblock css %} {% block content %}
+<a href="javascript:history.go(-1)">
+    <div class="go-back"><img src="{% static 'images/goback.png' %}" /></div>
+</a>
+<form action="{% url 'new' %}" method="POST">
+    {% csrf_token %}
+    <select name="category" class="cate-select">
+        {% for category in categories %}
+        <option value="{{category}}">{{category}}</option>
+        {% endfor %}
+    </select>
+    <div class="info">
+        <input name="title" class="title" type="text" placeholder="제목을 입력하세요" />
+        <input name="content" class="content" type="text" placeholder="내용을 입력하세요" />
+        <input name="deadline" class="deadLine" type="date" placeholder="내용을 입력하세요" />
+    </div>
+    <button type="submit">{% block button %}등록하기{% endblock button %}</button>
+</form>
+{% endblock content %}

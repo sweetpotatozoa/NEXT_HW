@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        {% load static %}
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" type="text/css" href="{% static 'base.css' %}" />
+        {% block css %} {% endblock css %}
+        <title>상우의 to-do-list!</title>
+    </head>
+    <body>
+        <div class="back">
+            <div class="wrapper">
+                <div class="safe-area">
+                    <img src="{% static 'images/safe-area.png' %}" />
+                </div>
+                {% block content %} {% endblock content %}
+                <div class="bottom-nav">
+                    <img src="{% static 'images/bottom-safe.png' %}" />
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

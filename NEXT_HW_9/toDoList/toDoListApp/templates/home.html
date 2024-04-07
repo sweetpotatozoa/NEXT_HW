@@ -1,0 +1,34 @@
+{% extends 'base.html' %} {% block css %}{% endblock css %} {% block content %}
+<div class="name">상우의 to-do List</div>
+<div class="nav">
+    <div class="cate" style="background-color: #7dabf4; color: white">모두</div>
+    <div class="cate">작업</div>
+    <div class="cate">개인적인일</div>
+    <div class="cate">위시리스트</div>
+</div>
+{% if not tasks %}
+<div class="back-img"><img src="../static/images/back-img.png" /></div>
+{% endif %}
+
+<div class="tasks">
+    {% for task in tasks %}
+    <div class="task">
+        <a href="{% url 'detail' task.id %}"><div class="task-title">{{task.title}}</div></a>
+        <div class="task-right">
+            <div class="left-day">{{task.days_left}} - Day</div>
+            <a href="{% url 'taskToggle' task.id %}"
+                ><div class="{% if task.completed %} done {% else %} isNotDone {% endif %}"></div
+            ></a>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% if not tasks %}
+<div class="wordCloud">
+    <img src="../static/images/wordCloud.png" />
+</div>
+{% endif %}
+<div class="add-task">
+    <a href="{% url 'new'%}"><div class="add">+</div></a>
+</div>
+{% endblock content %}

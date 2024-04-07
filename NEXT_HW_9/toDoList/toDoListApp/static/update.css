@@ -1,0 +1,14 @@
+button {
+    width: 45%;
+}
+
+.update {
+    background-color: #ffffff;
+    color: #7dabf4;
+    border: 2px solid #7dabf4;
+    padding: 13px;
+}
+
+.delete {
+    left: 48%;
+}

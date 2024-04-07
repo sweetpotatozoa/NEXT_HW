@@ -1,0 +1,21 @@
+{% extends 'base.html' %} {% block css %} {% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'new.css' %}" />
+{% endblock css %} {% block content %}
+<a href="{% url 'home' %}">
+    <div class="go-back"><img src="{% static 'images/goback.png' %}" /></div>
+</a>
+<form action="{% url 'update' task.id %}" method="POST">
+    {% csrf_token %}
+    <select name="category" class="cate-select" disabled>
+        <option value="{{category}}">{{task.category}}</option>
+    </select>
+    <div class="info">
+        <input name="title" class="title" type="text" placeholder="{{task.title}}" disabled />
+        <input name="content" class="content" type="text" placeholder="{{task.content}}" disabled />
+        <input name="deadline" class="deadLine" type="date" value="{{task.deadline|date:'Y-m-d'}}" disabled />
+    </div>
+    <button type="button" onclick="location.href='{% url 'update' task.id %}'">
+        {% block button %}수정하기{% endblock button %}
+    </button>
+</form>
+{% endblock content %}
