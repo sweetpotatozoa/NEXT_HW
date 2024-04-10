@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from .models import Article
+from .models import Comment
 
 # Create your views here.
 def new(request):
@@ -29,8 +30,24 @@ def list(request):
 
 def detail(request, article_id):
     article = Article.objects.get(id=article_id)
-    return render(request, 'detail.html', {'article': article})
+    if request.method == 'POST':
+        content = request.POST.get('content')
+        parent_id = request.POST.get('parent_id')
+        if parent_id:
+            parent = Comment.objects.get(id=parent_id)
+            Comment.objects.create(article=article, content=content, parent_id=parent_id)
+        else:
+            Comment.objects.create(article=article, content=content)
+        return redirect('detail', article_id=article_id)
+    else:
+        comments = Comment.objects.filter(article=article, parent__isnull=True)
+    return render(request, 'detail.html', {'article': article, 'comments': comments})
+
+    
 
 def category(request, category_id):
     articles = Article.objects.filter(category=category_id)
     return render(request, 'category.html', {'articles': articles})
+
+def base(request):
+    return render(request, 'base.html')
