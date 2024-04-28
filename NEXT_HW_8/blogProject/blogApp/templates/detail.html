@@ -10,8 +10,15 @@
 <div class="mid">
     <div class="header">
         <h2>{{ article.title }}</h2>
+        <p>{{ article.creator }}</p>
         <div class="content"><p>{{ article.content }}</p></div>
         <p>{{ article.created_at }}</p>
+        <p>마지막 방문자 : {{ article.last_read_by }}</p>
+        <p>마지막 방문시간 : {{ article.last_read_time }}</p>
+        <div style="margin-top: 10px" class="edit-box">
+            <a href="{% url 'edit' article.id %}">수정하기</a>|
+            <a href="{% url 'delete' article.id %}">삭제하기</a>
+        </div>
     </div>
     <div class="header">
         <h3>댓글</h3>
@@ -24,9 +31,13 @@
             {% for comment in comments %}
             <div class="comment">
                 <li>{{ comment.content }}</li>
+                <p>{{ comment.creator }}</p>
+                <a href="{% url 'delete_comment' comment.id %}">삭제하기</a>
                 <ul class="reply">
                     {% for reply in comment.replies.all %}
                     <li>{{ reply.content }}</li>
+                    <p>{{ comment.creator }}</p>
+                    <a href="{% url 'delete_comment' comment.id %}">삭제하기</a>
                     {% endfor %}
                 </ul>
 

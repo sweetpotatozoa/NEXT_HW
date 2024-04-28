@@ -1,0 +1,35 @@
+{% extends 'base.html' %} {% load static %} {% block css %}<link
+    rel="stylesheet"
+    type="text/css"
+    href="{% static 'detail.css' %}"
+/>
+<link rel="stylesheet" type="text/css" href="{% static 'new.css' %}" />
+{% endblock %} {% block title %} Detail edit {% endblock %} {% block content %}
+<div class="banner">
+    <h1>상우의 블로그</h1>
+</div>
+<div class="mid">
+    <div class="header">
+        <form action="{% url 'edit' article.id %}" method="post" >
+            {% csrf_token %}
+            <div>
+                <div>글제목</div>
+                <input type="text" name="title" value="{{ article.title }}" />
+            </div>
+            <div>
+                <div>글내용</div>
+                <textarea name="content" cols="30" rows="10">{{ article.content }}</textarea>
+            </div>
+            <div>
+                <div>카테고리</div>
+                <select name="category">
+                    {% for value, lable in categories %}
+                    <option value="{{ value }}" {% if article.category == value %} selected {% endif %}>{{ lable }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <button class="Bnt" type="submit">수정 완료</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

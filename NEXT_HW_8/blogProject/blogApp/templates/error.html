@@ -1,0 +1,10 @@
+{% extends 'base.html' %} {% load static %} {% block css %}
+<link rel="stylesheet" type="text/css" href="{% static 'detail.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'login.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'signup.css' %}" />
+{% endblock %} {% block title %}오류오류!{% endblock %} {% block content %}
+<script type="text/javascript">
+    alert('{{ error }}');
+    window.history.back();
+</script>
+{% endblock %}

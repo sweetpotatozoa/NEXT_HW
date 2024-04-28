@@ -80,3 +80,17 @@ li {
 .reply {
     padding-left: 10px;
 }
+
+a {
+    display: inline; /* 기본값이지만 명시적으로 지정 */
+    /* 클릭 가능 영역 확장을 위해 패딩 추가 */
+    text-decoration: none; /* 링크 밑줄 제거 */
+}
+
+.edit-box {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+    justify-content: space-between;
+    width: 20%;
+}

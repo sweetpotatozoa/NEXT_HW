@@ -77,3 +77,18 @@ a {
 .writeBtn:hover {
     background-color: #2094ff;
 }
+
+.logout {
+    padding-left: 10px;
+}
+
+.authBox {
+    display: flex;
+    justify-content: right;
+    width: 100%;
+    padding: 10px;
+}
+
+.login-out li {
+    margin-left: 20px;
+}
